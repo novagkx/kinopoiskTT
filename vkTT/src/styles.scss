@@ -1,0 +1,38 @@
+body {
+  color: #fff;
+}
+.header {
+  background-color: #fa4f4f;
+  &__h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 400;
+    padding: 5px;
+    padding-left: 30px;
+  }
+}
+
+.section {
+  padding-block: 20px;
+  background-color: #282828;
+  &__page, &__page--active {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #000;
+    color: #fff;
+  }
+  &__page--active {
+  background-color: #fff;
+    color: #000;
+  }
+  &__pagination-list {
+    margin: 0;
+    margin-bottom: 30px;
+    padding: 0;
+    padding-left: 30px;
+  }
+  &__h2 {
+    padding-left: 30px;
+  }
+}
