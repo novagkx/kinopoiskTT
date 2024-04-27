@@ -11,7 +11,6 @@ function App() {
     const [currentPage, setCurrentPage] = useState(1);
     const [limit, setLimit] = useState(4);
     const [totalPages, setTotalPages] = useState(0);
-
     const [fetchfilms, isfilmsLoading, filmError] = useFetching(async() => {
         const response = await FilmService.getBestFilms(limit, currentPage); // здесь уже запрос нужный на лучшие фильмы
         setfilms(response.data)
@@ -25,6 +24,7 @@ function App() {
     }, [currentPage]);
 
     const setPage = (page)=>setCurrentPage(page)
+
     return (
         <>
             <header className="header">
@@ -45,10 +45,6 @@ function App() {
                     {isfilmsLoading ? <span>Загрузка...</span> :
                     <FilmsList blockName={'section'} films={films.docs}/>}
                 </div>
-            </section>
-            <section className='similar-section'>
-                <h2 className="similar-section__h2">Похожие фильмы</h2>
-                
             </section>
             </main>
         </>
