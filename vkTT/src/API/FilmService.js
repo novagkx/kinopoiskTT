@@ -11,7 +11,7 @@ export default class FilmService {
           notNullFields: ['id', 'top250','rating.kp','movieLength'],
           type: "movie",
           sortField: ['rating.kp', 'votes'],
-          sortType: [-1, -1, -1]
+          sortType: [-1, -1]
         },
         headers: {
           'X-API-KEY': apiKey,

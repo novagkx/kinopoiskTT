@@ -1,4 +1,5 @@
 body {
+  background-color: #151515;
   color: #fff;
   margin: 0;
 }
@@ -17,7 +18,6 @@ body {
 
 .section {
   padding-block: 20px;
-  background-color: #151515;
 }
 .section__page, .section__page--active {
   padding: 10px;
