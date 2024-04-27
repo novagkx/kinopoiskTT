@@ -46,10 +46,6 @@ function App() {
                     <FilmsList blockName={'section'} films={films.docs}/>}
                 </div>
             </section>
-            <section className='similar-section'>
-                <h2 className="similar-section__h2">Похожие фильмы</h2>
-                
-            </section>
             </main>
         </>
     )

@@ -1,7 +1,9 @@
 import './modal.css' 
 export default function FilmModal({ active, film, onclose }) {
   if (!film) return null;
-  console.log(film)
+  const genresArray = film.genres.map(genre => genre.name);
+  console.log(genresArray)
+  
   return (
     <div
       className={active ? "modal active" : "modal"}
@@ -36,6 +38,10 @@ export default function FilmModal({ active, film, onclose }) {
               <img className="modal__img" src={film.poster.previewUrl} alt="" />
             </div>
           </>
+          <div className="similar-container">
+          <h2 className="similar-section__h2">Похожие фильмы</h2>
+          </div>
+          
       </div>
     </div>
   );
