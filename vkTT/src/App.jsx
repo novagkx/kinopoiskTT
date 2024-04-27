@@ -5,6 +5,7 @@ import Films from "./Films.jsx";
 import useFetching from "./customHooks/useFetching.js";
 import {getPageCount, getPagesArray} from "./utils/pages.js";
 import Button from "./components/Button.jsx";
+// import FilmModal from './components/filmModal/FilmModal.jsx';
 
 function App() {
     const [films, setfilms] = useState([]);
@@ -12,6 +13,8 @@ function App() {
     const [currentPage, setCurrentPage] = useState(1);
     const [limit, setLimit] = useState(4);
     const [totalPages, setTotalPages] = useState(0);
+    const [modalActive, setModalActive] = useState(false);
+
     const [fetchfilms, isfilmsLoading, filmError] = useFetching(async() => {
         const response = await FilmService.getBestFilms(limit, currentPage); // здесь уже запрос нужный на лучшие фильмы
         console.log('Данные 17 строка', response.data)
@@ -44,9 +47,10 @@ function App() {
                 <div className="section__container">
                     {filmError && <h1>Произошла ошибка...</h1> }
                     {isfilmsLoading ? <span>Загрузка...</span> :
-                    <Films films={films.docs}/>}
+                    <Films blockName={'section'} films={films.docs}/>}
                 </div>
             </section>
+            {/* <FilmModal active={modalActive} setActive={setModalActive}/> */}
         </>
     )
 }

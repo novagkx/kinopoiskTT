@@ -1,12 +1,12 @@
 import React from 'react';
-
-const Films = ({films}) => {
+import FilmItem from './components/FilmItem'
+const Films = ({films, blockName}) => {
     return (
-        <div>
+        <ul className={blockName + '__list'}>
             {films.map((film) => (
-                <div key={film.name}>name = {film.name}, year = {film.year}</div>
+                <FilmItem key={film.id} blockName={blockName} film={film}></FilmItem>
             ))}
-        </div>
+        </ul>
     );
 };
 

@@ -1,5 +1,11 @@
+@mixin size ($width, $height) {
+  width: $width;
+  height: $height;
+}
+
 body {
   color: #fff;
+  margin: 0;
 }
 .header {
   background-color: #fa4f4f;
@@ -15,12 +21,14 @@ body {
 
 .section {
   padding-block: 20px;
-  background-color: #282828;
+  background-color: #151515;
   &__page, &__page--active {
     padding: 10px;
+    padding-inline: 15px;
     cursor: pointer;
     background-color: #000;
     color: #fff;
+    border-radius: 3px;
   }
   &__page--active {
   background-color: #fff;
@@ -34,5 +42,38 @@ body {
   }
   &__h2 {
     padding-left: 30px;
+    margin-top: 0;
+  }
+  &__list {
+    display: flex;
+    column-gap: 15px;
+    margin: 0;
+    padding: 0;
+    padding-inline: 30px;
+    list-style-type: none;
+  }
+  &__items-container {
+    display: flex;
+    justify-content: flex-start;
+  }
+  &__link {
+    display: inline-block;
+    @include size(100%, 100%);
+  }
+  &__rating {
+    font-size: 2rem;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 0;
+  }
+  &__header {
+    margin-block: 10px;
+  }
+  &__release-date {
+    margin: 0;
+  }
+  &__link:hover {
+    cursor: pointer;
   }
 }
+
