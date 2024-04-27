@@ -3,7 +3,8 @@
   height: $height;
 }
 
-body {
+body {  
+  background-color: #151515;
   color: #fff;
   margin: 0;
 }
@@ -21,7 +22,6 @@ body {
 
 .section {
   padding-block: 20px;
-  background-color: #151515;
   &__page, &__page--active {
     padding: 10px;
     padding-inline: 15px;
