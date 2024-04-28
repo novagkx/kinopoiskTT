@@ -27,6 +27,9 @@ body {
   color: #fff;
   border-radius: 3px;
 }
+.section__page:hover {
+  color: teal;
+}
 .section__page--active {
   background-color: #fff;
   color: #000;
@@ -52,6 +55,7 @@ body {
   padding: 0;
   padding-inline: 30px;
   list-style-type: none;
+  margin-bottom: 30px;
 }
 .section__items-container {
   display: -webkit-box;
@@ -80,4 +84,55 @@ body {
 }
 .section__link:hover {
   cursor: pointer;
+}
+.section__link:hover .section__header {
+  color: teal;
+}
+
+.similar-section__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+.similar-section__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 15px;
+     -moz-column-gap: 15px;
+          column-gap: 15px;
+  margin: 0;
+  padding: 0;
+  padding-inline: 30px;
+  list-style-type: none;
+}
+.similar-section__h2 {
+  font-size: 2rem;
+  color: teal;
+  border: 1px solid red;
+  text-align: center;
+}
+.similar-section__h2--show {
+  font-size: 1.25rem;
+  text-align: center;
+}
+.similar-section__img {
+  max-width: 100%;
+}
+.similar-section__header {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+.similar-section__link {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: #fff;
+}
+.similar-section__link:hover {
+  color: teal;
 }

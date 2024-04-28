@@ -7,11 +7,11 @@ export default class FilmService {
           'rating.kp': '8-10',
           page: page,
           limit: limit,
-          selectFields: ['id','name', 'type', 'year', 'rating', 'releaseYears','rating.kp','genres', 'poster'],
-          notNullFields: ['id', 'top250','rating.kp','movieLength'],
           type: "movie",
-          sortField: ['rating.kp', 'votes'],
-          sortType: [-1, -1]
+          selectFields: ['id','name', 'rating','poster', 'year'],
+          notNullFields: ['name','id','poster.url'],
+          sortField: ['votes.kp','votes.imdb','rating.imdb', 'rating.kp'],
+          sortType: [-1, -1, -1, -1]
         },
         headers: {
           'X-API-KEY': apiKey,
@@ -22,21 +22,14 @@ export default class FilmService {
     return response;
   }
 
-  static async getFilm(limit = 1, page = 1, id) {
-    const response = await axios.get(`https://api.kinopoisk.dev/v1.4/movie`, {
-        params: {
-          'rating.kp': '8-10',
-          'id':{id}, // запрос с таким id
-          page: page,
-          limit: limit,
-          selectFields: ['name', 'type', 'year', 'rating', 'releaseYears','rating.kp','genres', 'poster', 'movieLength']
-        },
-        headers: {
-          'X-API-KEY': apiKey,
-          'accept': 'application/json'
-        }
-      });
-      
+
+  static async getSimilarFilms({ limit = 5, id}) { 
+    const response = await axios.get(`https://api.kinopoisk.dev/v1.4/movie?limit=${limit}&selectFields=name&selectFields=year&selectFields=rating&selectFields=genres&similarMovies.id=${id}`, {
+      headers: {
+        'X-API-KEY': apiKey,
+        'accept': 'application/json'
+      }
+    });
     return response;
   }
 }
