@@ -30,6 +30,9 @@ body {
     color: #fff;
     border-radius: 3px;
   }
+  &__page:hover {
+    color: teal;
+  }
   &__page--active {
   background-color: #fff;
     color: #000;
@@ -51,6 +54,7 @@ body {
     padding: 0;
     padding-inline: 30px;
     list-style-type: none;
+    margin-bottom: 30px;
   }
   &__items-container {
     display: flex;
@@ -74,6 +78,51 @@ body {
   }
   &__link:hover {
     cursor: pointer;
+    .section__header {
+      color: teal;
+
+    }
+  }
+}
+
+.similar-section {
+  &__container {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  &__list {
+    display: flex;
+    column-gap: 15px;
+    margin: 0;
+    padding: 0;
+    padding-inline: 30px;
+    list-style-type: none;
+  }
+  &__h2 {
+    font-size: 2rem;
+    color: teal;
+    border: 1px solid red;
+    text-align: center;
+  }
+  &__h2--show {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+  &__img {
+    max-width: 100%;
+  }
+  &__header {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+  &__link {
+    display: inline-block;
+    @include size(100%, 100%);
+    text-decoration: none;
+    color: #fff;
+  }
+  &__link:hover {
+    color: teal;
   }
 }
 

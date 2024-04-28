@@ -1,54 +1,38 @@
-import './App.css'
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from "react";
+import "./App.css";
+import MainSection from "./components/MainSection.jsx";
+import Context from "./utils/Context.js";
+import SilmilarFilmsSection from "./components/SimilarFilmsSection.jsx";
 import FilmService from "./API/FilmService.js";
-import FilmsList from "./FilmsList.jsx";
 import useFetching from "./customHooks/useFetching.js";
-import {getPageCount, getPagesArray} from "./utils/pages.js";
-import Button from "./components/Button.jsx";
-
+import axios from "axios";
+import apiKey from "./API/apiKey.js";
 function App() {
-    const [films, setfilms] = useState([]);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [limit, setLimit] = useState(4);
-    const [totalPages, setTotalPages] = useState(0);
+  // const [limit, setLimit] = useState(5);
+  // const [similarFilms, setSimilarFilms] = useState([]);
+  // Функция для отправки запроса похожих фильмов
+  // const fetchExactFilm = async (id) => {
+  //   // const response = await FilmService.getSimilarFilms(limit, id) // допилить проверку на try catch
+  //   // const response = await axios.get("https://jsonplaceholder.typicode.com/users")
+  //   console.log("Попытка запроса - ", id, limit)
+  //   const response = await axios.get(`https://api.kinopoisk.dev/v1.4/movie/${id}`, {headers: {
+  //     'X-API-KEY': apiKey,
+  //     'accept': 'application/json'
+  //   }})
+  //   setSimilarFilms(response.data);
+  //   console.log("23строка", response.data, similarFilms)
+  // };
 
-    const [fetchfilms, isfilmsLoading, filmError] = useFetching(async() => {
-        const response = await FilmService.getBestFilms(limit, currentPage); // здесь уже запрос нужный на лучшие фильмы
-        setfilms(response.data)
-        const totalCount = response.data.total; // беру количество элементов из поля total
-        setTotalPages(getPageCount(totalCount, limit))
-    });
-    let pagesArray = getPagesArray(currentPage, totalPages);
-
-    useEffect(() => {
-        fetchfilms();
-    }, [currentPage]);
-
-    const setPage = (page)=>setCurrentPage(page)
-    return (
-        <>
-            <header className="header">
-                <h1 className="header__h1">Кино справочник</h1>
-            </header>
-            <main>
-            <section className="section">
-                <h2 className="section__h2">Лучшие фильмы</h2>
-                <div className="section__pagination">
-                    <ul className="section__pagination-list">
-                        {currentPage > 5 && currentPage <= totalPages && <Button currentPage={currentPage-1} onclick={setPage}>Влево</Button> }
-                        {pagesArray.map((page) => <span onClick= {()=>setPage(page)} key={page} className={currentPage === page ? "section__page--active" : "section__page"}>{page}</span>)}
-                        {currentPage < totalPages && <Button currentPage={currentPage+1} onclick={setPage}>Вправо</Button> }
-                    </ul>
-                </div>
-                <div className="section__container">
-                    {filmError && <h1>Произошла ошибка...</h1> }
-                    {isfilmsLoading ? <span>Загрузка...</span> :
-                    <FilmsList blockName={'section'} films={films.docs}/>}
-                </div>
-            </section>
-            </main>
-        </>
-    )
+  return (
+    <>
+      <header className="header">
+        <h1 className="header__h1">Кино справочник</h1>
+      </header>
+      <main>
+        <MainSection />
+      </main>
+    </>
+  );
 }
 
-export default App
+export default App;
