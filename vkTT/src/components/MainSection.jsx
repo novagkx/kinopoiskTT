@@ -14,7 +14,6 @@ const MainSection = () => {
   const [fetchfilms, isfilmsLoading, filmError] = useFetching(async () => {
     const response = await FilmService.getBestFilms(limit, currentPage); // здесь уже запрос нужный на лучшие фильмы
     setfilms(response.data);
-    console.log(response.data);
     const totalCount = response.data.total; // беру количество элементов из поля total
     setTotalPages(getPageCount(totalCount, limit));
   });
