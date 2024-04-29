@@ -15,8 +15,6 @@ const Films = ({ films, blockName }) => {
     }
   // запрос на конкретный фильм
   const fetchExactFilm = async (film) => {
-    //сделать проверку на try catch
-    console.log("Попытка запроса - ", film.id);
     const response = await axios.get(
       `https://api.kinopoisk.dev/v1.4/movie/${film.id}`,
       {
@@ -26,8 +24,7 @@ const Films = ({ films, blockName }) => {
         },
       }
     );
-    console.log('Полученный запрос на весь фильм response: ', response);
-    console.log('Полученный запрос на весь фильм response.data: ', response.data)
+
     setSelectedFilm(response.data);
     setShowModal(true);
   };

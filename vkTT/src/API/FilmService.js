@@ -23,8 +23,8 @@ export default class FilmService {
   }
 
 
-  static async getSimilarFilms({ limit = 5, id}) { 
-    const response = await axios.get(`https://api.kinopoisk.dev/v1.4/movie?limit=${limit}&selectFields=name&selectFields=year&selectFields=rating&selectFields=genres&similarMovies.id=${id}`, {
+  static async getExactFilm(id) { 
+    const response = await axios.get(`https://api.kinopoisk.dev/v1.4/movie/${id}`, {
       headers: {
         'X-API-KEY': apiKey,
         'accept': 'application/json'

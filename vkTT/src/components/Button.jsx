@@ -1,7 +1,7 @@
-const Button = ({children, onclick, currentPage}) => {
+const Button = ({children, onclick, currentPage, blockName}) => {
     return (
         <>
-            <button onClick={()=>{onclick(currentPage)}}>{children}</button>
+            <button className={blockName + "__btn"} onClick={()=>{onclick(currentPage)}}>{children}</button>
         </>
     );
 };

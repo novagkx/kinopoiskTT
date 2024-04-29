@@ -26,6 +26,7 @@ body {
   background-color: #000;
   color: #fff;
   border-radius: 3px;
+  display: block;
 }
 .section__page:hover {
   color: teal;
@@ -34,11 +35,26 @@ body {
   background-color: #fff;
   color: #000;
 }
+.section__btn svg {
+  width: 36px;
+  height: 36px;
+}
+.section__btn {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 3px;
+  background-color: #353535;
+}
 .section__pagination-list {
   margin: 0;
   margin-bottom: 30px;
   padding: 0;
   padding-left: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style-type: none;
 }
 .section__h2 {
   padding-left: 30px;

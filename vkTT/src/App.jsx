@@ -8,21 +8,6 @@ import useFetching from "./customHooks/useFetching.js";
 import axios from "axios";
 import apiKey from "./API/apiKey.js";
 function App() {
-  // const [limit, setLimit] = useState(5);
-  // const [similarFilms, setSimilarFilms] = useState([]);
-  // Функция для отправки запроса похожих фильмов
-  // const fetchExactFilm = async (id) => {
-  //   // const response = await FilmService.getSimilarFilms(limit, id) // допилить проверку на try catch
-  //   // const response = await axios.get("https://jsonplaceholder.typicode.com/users")
-  //   console.log("Попытка запроса - ", id, limit)
-  //   const response = await axios.get(`https://api.kinopoisk.dev/v1.4/movie/${id}`, {headers: {
-  //     'X-API-KEY': apiKey,
-  //     'accept': 'application/json'
-  //   }})
-  //   setSimilarFilms(response.data);
-  //   console.log("23строка", response.data, similarFilms)
-  // };
-
   return (
     <>
       <header className="header">

@@ -29,19 +29,33 @@ body {
     background-color: #000;
     color: #fff;
     border-radius: 3px;
+    display: block;
   }
   &__page:hover {
     color: teal;
   }
+
   &__page--active {
   background-color: #fff;
     color: #000;
+  }
+  &__btn svg {
+    @include size(36px, 36px);
+  }
+  &__btn {
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: #353535;
   }
   &__pagination-list {
     margin: 0;
     margin-bottom: 30px;
     padding: 0;
     padding-left: 30px;
+    display: flex;
+    list-style-type: none;
   }
   &__h2 {
     padding-left: 30px;
